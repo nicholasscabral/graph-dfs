@@ -3,11 +3,11 @@ public class Graph {
     private final Map<String, ArrayList<String>> adj;
 
     public Graph() {
-        adj = new HashMap<String, ArrayList<String>>();
+        adj = new HashMap<>();
     }
 
     public void addVertex(String vertex) {
-        adj.putIfAbsent(vertex, new ArrayList<String>());
+        adj.putIfAbsent(vertex, new ArrayList<>());
     }
 
     public void addEdge(String from, String to) {
