@@ -15,4 +15,15 @@ public class Graph {
         edges.add(to);
         adj.put(from, edges);
     }
+
+    public void printGraph() {
+        for (String vertex : adj.keySet()) {
+            System.out.print(vertex + " -> ");
+            List<String> edges = adj.get(vertex);
+            for (String edge : edges) {
+                System.out.print(edge + " ");
+            }
+            System.out.println();
+        }
+    }
 }
