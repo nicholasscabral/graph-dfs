@@ -8,7 +8,13 @@ public class Main {
 
         graph.addEdge("A", "C");
         graph.addEdge("C", "B");
+        graph.addEdge("B", "A");
 
         graph.printGraph();
+
+        if (graph.hasCycle())
+            System.out.println("This graph has cycle");
+        else
+            System.out.println("This graph does not have cycle");
     }
 }

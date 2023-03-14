@@ -26,4 +26,36 @@ public class Graph {
             System.out.println();
         }
     }
+
+    public boolean hasCycle() {
+        Set<String> visited = new HashSet<>();
+        Set<String> onStack = new HashSet<>();
+
+        for (String vertex : adj.keySet()) {
+            if (hasCycleHelper(vertex, visited, onStack)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean hasCycleHelper(String vertex, Set<String> visited, Set<String> onStack) {
+        visited.add(vertex);
+        onStack.add(vertex);
+
+        List<String> edges = adj.get(vertex);
+        for (String edge : edges) {
+            if (!visited.contains(edge)) {
+                if (hasCycleHelper(edge, visited, onStack)) {
+                    return true;
+                }
+            } else if (onStack.contains(edge)) {
+                return true;
+            }
+        }
+
+        onStack.remove(vertex);
+        return false;
+    }
 }
