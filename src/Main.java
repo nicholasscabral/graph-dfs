@@ -1,18 +1,22 @@
 public class Main {
     public static void main(String[] args) {
-        Graph graph = new Graph();
+        Graph medicalFlowGraph = new Graph();
 
-        graph.addVertex("A");
-        graph.addVertex("B");
-        graph.addVertex("C");
+        String triagem = "Triagem";
+        String consulta = "Consulta";
+        String exames = "Exames";
 
-        graph.addEdge("A", "C");
-        graph.addEdge("C", "B");
-        graph.addEdge("B", "A");
+        medicalFlowGraph.addVertex(triagem);
+        medicalFlowGraph.addVertex(consulta);
+        medicalFlowGraph.addVertex(exames);
 
-        graph.printGraph();
+        medicalFlowGraph.addEdge(triagem, consulta);
+        medicalFlowGraph.addEdge(consulta, exames);
+        medicalFlowGraph.addEdge(exames, consulta);
 
-        if (graph.hasCycle())
+        medicalFlowGraph.printGraph();
+
+        if (medicalFlowGraph.hasCycle())
             System.out.println("This graph has cycle");
         else
             System.out.println("This graph does not have cycle");
