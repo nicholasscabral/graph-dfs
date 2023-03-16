@@ -4,7 +4,7 @@ public class Graph {
     private final Map<String, ArrayList<String>> adj;
 
     public Graph() {
-        adj = new HashMap<>();
+        adj = new LinkedHashMap<>();
     }
 
     public void addVertex(String vertex) {
