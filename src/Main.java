@@ -2,13 +2,13 @@ public class Main {
     public static void main(String[] args) {
         Graph fluxoDeAtendimento = new Graph();
 
-        fluxoDeAtendimento.addVertex("Entrada");
         fluxoDeAtendimento.addVertex("Triagem");
         fluxoDeAtendimento.addVertex("Consulta");
+        fluxoDeAtendimento.addVertex("Exames");
 
-        fluxoDeAtendimento.addEdge("Entrada", "Consulta");
-        fluxoDeAtendimento.addEdge("Consulta", "Triagem");
-        fluxoDeAtendimento.addEdge("Triagem", "Entrada");
+        fluxoDeAtendimento.addEdge("Triagem", "Consulta");
+        fluxoDeAtendimento.addEdge("Consulta", "Exames");
+        fluxoDeAtendimento.addEdge("Exames", "Consulta");
 
         fluxoDeAtendimento.printGraph();
         fluxoDeAtendimento.hasCycle();

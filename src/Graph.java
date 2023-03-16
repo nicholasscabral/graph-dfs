@@ -19,7 +19,11 @@ public class Graph {
 
     public void printGraph() {
         for (String vertex : adj.keySet()) {
-            System.out.println(vertex + " -> " + String.join(" -> ", adj.get(vertex)));
+            if (adj.get(vertex).isEmpty()) {
+                System.out.println(vertex + ";");
+            } else {
+                System.out.println(vertex + " -> " + String.join(" -> ", adj.get(vertex)));
+            }
         }
     }
 
