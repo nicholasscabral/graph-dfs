@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Graph {
     private final Map<String, ArrayList<String>> adj;
 
@@ -18,26 +19,21 @@ public class Graph {
 
     public void printGraph() {
         for (String vertex : adj.keySet()) {
-            System.out.print(vertex + " -> ");
-            List<String> edges = adj.get(vertex);
-            for (String edge : edges) {
-                System.out.print(edge + " ");
-            }
-            System.out.println();
+            System.out.println(vertex + " -> " + String.join(" -> ", adj.get(vertex)));
         }
     }
 
-    public boolean hasCycle() {
+    public void hasCycle() {
         Set<String> visited = new HashSet<>();
         Set<String> onStack = new HashSet<>();
 
         for (String vertex : adj.keySet()) {
             if (hasCycleHelper(vertex, visited, onStack)) {
-                return true;
+                System.out.println("O grafo formou um ciclo");
+                return;
             }
         }
-
-        return false;
+        System.out.println("O grafo NÃO formou um ciclo");
     }
 
     private boolean hasCycleHelper(String vertex, Set<String> visited, Set<String> onStack) {
